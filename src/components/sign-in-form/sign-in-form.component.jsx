@@ -38,7 +38,10 @@ const SignInForm = () => {
             resetFormFields();
 
         } catch (error) {
-
+            if (error.code === 'auth/invalid-credential') {
+                alert('invalid credentials')
+                console.log(error)
+            }
         }
     }
 
@@ -47,8 +50,6 @@ const SignInForm = () => {
         const { name, value } = event.target;
 
         setFormFields({ ...formFields, [name]: value });
-
-        console.log(formFields);
 
     };
 
@@ -82,7 +83,7 @@ const SignInForm = () => {
 
                 <div className='buttons-container'>
                     <Button type="submit">Sign In</Button>
-                    <Button buttonType='google' onClick={SignInWithGoogle}>Google Sign In</Button>
+                    <Button type="button" buttonType='google' onClick={SignInWithGoogle}>Google Sign In</Button>
                 </div>
             </form>
         </div>
