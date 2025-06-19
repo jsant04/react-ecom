@@ -38,7 +38,7 @@ import Button from '../button/button.component';
                 email,
                 password
             );
-               
+
             await createUserDocumentFromAuth(user, {displayName})  
             resetFormFields();
 
